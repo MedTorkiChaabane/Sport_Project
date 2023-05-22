@@ -1,0 +1,36 @@
+<div class="container">
+<table class="table">
+    <thead>
+       <tr>
+           <th scope="col">id</th>
+           <th scope="col">First Name</th>
+           <th scope="col">Last Name</th>
+           <th scope="col">Email</th>
+           <th scope="col">Role</th>
+           <th scope="col">Actions
+       </tr>
+    </thead>
+    <tbody id="adminUserDiv" >
+    <tr *ngFor="let user of usersTab" >
+        
+        <td>{{user._id}}</td>
+        <td>{{user.firstName}}</td> 
+        <td>{{user.lastName}}</td> 
+        <td>{{user.email}}</td> 
+        <td>{{user.role}}</td>
+        <td>
+            <button class="btn btn-info" (click)="displayUser(user._id)">Display</button>
+            <button class="btn btn-warning"(click)="editUser(user._id)">Edit</button>
+            <button class="btn btn-danger" (click)="deleteUser(user._id)">Delete</button>
+        </td>
+    
+    
+    </tr>
+       
+       
+       
+   
+      
+    </tbody>
+ </table>
+</div>

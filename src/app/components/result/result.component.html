@@ -1,0 +1,68 @@
+<div class="container ">
+      
+
+    <div class="row">
+      <div class="col-lg-12">
+        
+        <div class="d-flex team-vs mt-5">  <!-- mt-5 margin-top:5%  -->
+          <span class="score" >
+            <span [ngStyle]="{'color': scoreColor(resultInput.scoreOne,resultInput.scoreTwo)}">{{resultInput.scoreOne}}</span>
+            -
+            <span [ngStyle]="{'color':scoreColor(resultInput.scoreTwo,resultInput.scoreOne)}">{{resultInput.scoreTwo}}</span>
+          </span>
+          <div class="team-1 w-50">
+            <div class="team-details w-100 text-center">
+              <img src="assets/images/logo_1.png" alt="Image" class="img-fluid">
+              <h3> <span [ngClass]="{
+                'win': resultInput.scoreOne>resultInput.scoreTwo,
+                'loss':resultInput.scoreOne<resultInput.scoreTwo,
+                'draw':resultInput.scoreOne==resultInput.scoreTwo
+              }">{{resultInput.teamOne}}</span> </h3>
+             
+            </div>
+          </div>
+          <div class="team-2 w-50">
+            <div class="team-details w-100 text-center">
+              <img src="assets/images/logo_2.png" alt="Image" class="img-fluid">
+              <h3><span [ngClass]="{
+                'win': resultInput.scoreOne<resultInput.scoreTwo,
+                'loss':resultInput.scoreOne>resultInput.scoreTwo,
+                'draw':resultInput.scoreOne==resultInput.scoreTwo
+              }">{{resultInput.teamTwo}}</span> </h3>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h1>Comments</h1>
+    <div *ngFor="let c of resultInput.comments">
+      <div>
+        {{searchUser(c.userId)?.firstName}} {{searchUser(c.userId)?.lastName}} : {{c.content}} 
+      </div>
+    </div>
+  </div>
+  
+  <div class="site-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <form #commentForm="ngForm" (ngSubmit)="addCommentMatch()">
+            <div class="form-group">
+              <input type="text" [(ngModel)]="comment.content"  #content="ngModel" name="content" class="form-control" placeholder="Content"
+              [ngClass]="{ 'is-invalid': commentForm.submitted && content.invalid  }"  required>
+              <span *ngIf="commentForm.submitted && content.invalid " class="invalidfeedback">
+                <span *ngIf="content.errors.required">Content is required</span>
+              </span>
+            </div>
+           
+           
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary py-3 px-5" value="Comment">
+            </div>
+          </form>  
+        </div>
+        
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,33 @@
+<table class="table">
+    <thead>
+       <tr>
+           <th scope="col">id</th>
+           <th scope="col">Name</th>
+           <th scope="col">Staduim Name</th>
+           <th scope="col">Staduim Capacity</th>
+           <th scope="col">Owner</th>
+           <th scope="col">Foundation</th>
+           <th scope="col">Actions
+       </tr>
+    </thead>
+    <tbody id="adminTeamDiv" >
+    <tr *ngFor="let team of teams">
+        <td>{{team._id}}</td>
+        <td>{{team.name}}</td>
+        <td>{{searchStaduim(team.staduimId)?.name}}</td> 
+        <td>{{searchStaduim(team.staduimId)?.capacity}}</td> 
+        <td>{{team.owner}}</td> 
+        <td>{{team.foundation}}</td>
+        <td>
+            <button class="btn btn-info" (click)="displayTeam(team._id)">Display</button>
+            <button class="btn btn-warning"(click)="editTeam(team._id)">Edit</button>
+            <button class="btn btn-danger" (click)="deleteTeam(team._id)">Delete</button>
+        </td>
+    </tr>
+       
+       
+       
+   
+      
+    </tbody>
+ </table>

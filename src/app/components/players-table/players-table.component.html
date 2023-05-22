@@ -1,0 +1,30 @@
+<table class="table ">
+    <thead>
+       <tr>
+           <th scope="col">id</th>
+           <th scope="col">Name</th>
+           <th scope="col">Position</th>
+           <th scope="col">Number</th>
+           <th scope="col">Age</th>
+           <th scope="col">Team</th>
+           <th scope="col">Actions
+       </tr>
+    </thead>
+    <tbody id="adminPlayerDiv" >
+   
+        <tr *ngFor="let player of players">
+            <td>{{player._id}}</td>
+            <td>{{player.name}}</td>
+             <td>{{player.position}}</td> 
+             <td>{{player.number}}</td> 
+             <td>{{player.age}}</td> 
+             <td>{{searchTeam(player.teamId)?.name}}</td> 
+
+             <td>
+                <button class="btn btn-info" (click)="goToDisplay(player._id)">Display</button>
+                <button class="btn btn-warning" (click)="goToEdit(player._id)">Edit</button>
+                <button class="btn btn-danger" (click)="deletePlayer(player._id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+ </table>

@@ -1,0 +1,17 @@
+<div class="container site-section">
+    <div class="row">
+      <div class="col-6 title-section">
+        <h2 class="heading">Profile</h2>
+      </div>
+    </div>
+<div class="custom-media d-flex">
+    <div class="img mr-4">
+      <img [src]="user?.img" *ngIf="user?.img" alt="Image" class="img-fluid rounded">
+    </div>
+    <div class="text">
+      <span class="meta">{{user?.firstName}}</span>
+      <h3 class="mb-4"><a href="#">{{user?.lastName}}</a></h3>
+      <p>{{user?.email}}</p>
+      <p><a href="#">{{user?.tel}}</a></p>
+    </div>
+  </div>
